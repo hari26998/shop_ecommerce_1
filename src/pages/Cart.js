@@ -9,7 +9,8 @@ import currencyFormatter from "currency-formatter";
 import { useState } from "react";
 
 
-const Container = styled.div``;
+const Container = styled.div`
+margin-top: 100px`;
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -203,7 +204,7 @@ const Cart = () => {
   return (
     <Container>
       
-      <Announcement />
+      
       <Wrapper>
         <Title>YOUR CART DETAILS</Title>
         {cart > 0? <>

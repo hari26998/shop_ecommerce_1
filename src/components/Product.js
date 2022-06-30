@@ -8,7 +8,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
   import styled from "styled-components";
-  
+const Container2=styled.div`
+z-index:0;
+`;
   const Info = styled.div`
     opacity: 0;
     width: 100%;
@@ -36,9 +38,13 @@ import { Link } from "react-router-dom";
     justify-content: center;
     background-color: #f5fbfd;
     position: relative;
+    
+
     &:hover ${Info}{
       opacity: 1;
+
     }
+
   `;
   
   const Circle = styled.div`
@@ -47,11 +53,15 @@ import { Link } from "react-router-dom";
     border-radius: 50%;
     background-color: white;
     position: absolute;
+    overflow:hidden;
+
   `;
   
   const Image = styled.img`
     height: 75%;
     z-index: 2;
+    overflow:hidden;
+
   `;
   
   const Icon = styled.div`
@@ -76,7 +86,7 @@ import { Link } from "react-router-dom";
     const dispatch=useDispatch()
     
     return (
-      
+      <Container2>
       <Container>
         <Circle/>
         <Image src={`/images/${product.image}`} alt="image name"/>
@@ -92,6 +102,7 @@ import { Link } from "react-router-dom";
           </Icon>
         </Info>
       </Container>
+      </Container2>
     );
   };
   

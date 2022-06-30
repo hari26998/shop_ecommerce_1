@@ -8,7 +8,8 @@ import { mobile } from "../responsive";
 import Footer from "../components/Footer";
 
 
-const Container = styled.div``;
+const Container = styled.div`
+margin-top: 100px`;
 
 
 const Wrapper = styled.div`
@@ -152,7 +153,7 @@ const Wishlist = () => {
     return (
         <Container>
       
-      <Announcement />
+    
       <Wrapper>
         <Title>YOUR WISHLIST DETAILS</Title>
         {wishlist > 0? <>

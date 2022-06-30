@@ -8,9 +8,10 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
-  height: 70px;
+  height: 50px;
    width:100%;
   background:white;
+  
   ${mobile({ height: "50px" })}
 `;
 
@@ -26,6 +27,7 @@ const Wrapper = styled.div`
 const Left = styled.div`
   flex: 1;
   display: flex;
+  
   align-items: center;
 `;
 
@@ -44,7 +46,7 @@ const SearchContainer = styled.div`
 `;
 const Button = styled.div`
 color:black;
-  padding: 15px;
+  padding:0;
   
   background-color: white;
   cursor: pointer;

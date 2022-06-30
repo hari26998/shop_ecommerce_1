@@ -52,8 +52,7 @@ const App = () => {
   return(
     <Router>
     <Provider store={store}>
-      <div><Navbar/></div>
-      
+      <Header/>      
     
           <Route path="/" exact component={Home}/>
           <Route path="/details/:id" exact component={Details}/>

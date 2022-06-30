@@ -25,6 +25,9 @@ justify-content: center;
 transition: all 0.5s ease;
 cursor: pointer;
 `;
+
+const Container3=styled.div`
+margin-top: 100px;`;
 const Container=styled.div`
 padding: 20px;
     display: flex;
@@ -97,7 +100,8 @@ const Search = () => {
   });
 
   return (
-    <div className="searchBarSection">
+    
+      <Container3>
       <div className="searchBar">
         <input
           type="text"
@@ -107,6 +111,7 @@ const Search = () => {
             setSearch(e.target.value);
           }}
         />
+        
         <button type="submit" className="button" onSubmit={submitHandler}>
           <svg
             className="w-6 h-6"
@@ -124,6 +129,7 @@ const Search = () => {
           </svg>
         </button>
       </div>
+      
 { search.length!=0 
 &&
 <Container>
@@ -147,7 +153,7 @@ const Search = () => {
         ))}
       </Container>}
       
-    </div>
+    </Container3>
   );
 };
 
