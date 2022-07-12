@@ -41,8 +41,3 @@ const ProductsReducers=(state=initState,action)=>{
 
 }
 
-<<<<<<< HEAD
-export default ProductsReducers
-=======
-export default ProductsReducer
->>>>>>> 41ccb3f8d95d9573e3ef649bcad9043d3e489fdd
