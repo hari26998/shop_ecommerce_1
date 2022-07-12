@@ -41,3 +41,4 @@ const ProductsReducers=(state=initState,action)=>{
 
 }
 
+export default ProductsReducers
