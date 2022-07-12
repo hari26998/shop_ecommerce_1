@@ -86,7 +86,7 @@ const Right = styled.div`
 
 const MenuItem = styled.div`
 display:flex;
-justify-content:""
+textDecoration:none
   color:black;
   font-size: 14px;
   cursor: pointer;

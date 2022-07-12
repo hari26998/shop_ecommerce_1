@@ -23,7 +23,7 @@ let findPro1;
                 }}
      
                 case 'REMOVEWL':
-                    findPro1 = state.products.find(product => product.id === action.payload);
+                   const findPro1 = state.products.find(product => product.id === action.payload);
                     const filtered = state.products.filter(product => product.id !== action.payload);
                     return {
                         ...state,

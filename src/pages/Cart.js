@@ -240,7 +240,7 @@ const Cart = () => {
                <b>SubTotal:</b><ProductPrice1>{currencyFormatter.format(product.discountPrice * product.quantity, {code: 'INR'})}</ProductPrice1>
                </ProductSize>
                <button style={{border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}>ADD TO WISHLIST</button>
-               
+               <button style={{width:"124px",marginTop:"10px",border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={() => dispatch({type: 'REMOVE', payload: product.id})}>REMOVE</button>
               </PriceDetail>
             </Product>
             <Hr />
