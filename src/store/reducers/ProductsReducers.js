@@ -12,7 +12,7 @@ const initState={
             {id: 7,name: 'men winter jacket',brand:'USPA',image: '8.jpg', price: 4500, discount: 7, discountPrice: 4500  - 7 / 100 * 4500, quantity: 1,size: "S M L XL", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},
             {id: 8,name: 'men shirt',brand:'peter-england' ,image: '9.jpg', price: 3000, discount: 4, discountPrice: 3000  - 4 / 100 * 3000, quantity: 1,size: "S M L XL", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},        
             {id: 9,name: 'men winter jacket', brand:'nike',image: '10.jpg', price: 4600, discount: 3, discountPrice: 4600  - 3 / 100 * 4600, quantity: 1,size: "S M L XL", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},   
-            {id:10,name:'men 3/4th sleeved tshirt',brand:'flying machine',image:'11.jpg',price:2300,discount:3,dicountPrice: 2300  - 3 / 100 * 2300,quantity:1,size: "S M L XL",desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},
+            {id:10,name:'men 3/4th sleeved tshirt',brand:'flying machine',image:'11.jpg',price:2300,discount:3,dicountPrice:  2300  - 3 / 100 * 2300,quantity:1,size: "S M L XL",desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},
             {id:11,name:'men full sleeved tshirt',brand:'adidas',image:'12.jpg',price:2600,discount:4,discountPrice: 2600  - 4 / 100 * 2600,quantity:1,size: "S M L XL",desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},
             {id:12,name:'women winter sweater',brand:'dolce',image:'13.jpg',price:6700,discount:5,discountPrice: 6700  - 5 / 100 * 6700,quantity:1,size: "S M L XL",desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},
             {id:13,name:'women sports wear',brand:'puma',image:'14.jpg',price:1650,discount:3,discountPrice: 1650  - 3 / 100 * 1650,quantity:1,size: "S M L XL",desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},
@@ -41,4 +41,8 @@ const ProductsReducers=(state=initState,action)=>{
 
 }
 
+<<<<<<< HEAD
 export default ProductsReducers
+=======
+export default ProductsReducer
+>>>>>>> 41ccb3f8d95d9573e3ef649bcad9043d3e489fdd
