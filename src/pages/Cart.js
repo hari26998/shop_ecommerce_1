@@ -164,10 +164,12 @@ cursor:pointer;
 `;
 
 const Cart = () => {
+  const [quantity, setQuantity] = useState(1);
   const dispatch=useDispatch()
   const {products,totalQuantities,totalPrice} = useSelector(state => state.CartReducer);
   const [amount, setAmount] = useState(totalPrice)
         const[cart,setCart]=useState(products.length)
+        const[price,setPrice]=useState(totalPrice)
         const handleSubmit=(e)=>{
           e.preventDefault();
             var options = {
@@ -198,7 +200,7 @@ const Cart = () => {
             pay.open();
 
         setCart("")
-           
+        setPrice("")
         }
 
   return (
@@ -237,6 +239,7 @@ const Cart = () => {
                <ProductSize>
                <b>SubTotal:</b><ProductPrice1>{currencyFormatter.format(product.discountPrice * product.quantity, {code: 'INR'})}</ProductPrice1>
                </ProductSize>
+               <button style={{border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}>ADD TO WISHLIST</button>
                
               </PriceDetail>
             </Product>
@@ -250,6 +253,7 @@ const Cart = () => {
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Total Items</SummaryItemText>
+
               <SummaryItemPrice>      
               {totalQuantities}
              </SummaryItemPrice>

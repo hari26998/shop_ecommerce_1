@@ -56,3 +56,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* @media(min-width:380px){
+  .Header{
+    height: 300px;
+    width:300px;
+    object-fit: fill;
+    display:none;
+  }
+} */

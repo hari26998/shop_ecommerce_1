@@ -20,19 +20,25 @@ const initState={
             {id:15,name:'blue bagpack',brand:'bluelagoon',image:'16.jpg',price:1850,discount:5,discountPrice: 1850  - 5 / 100 * 1850,quantity:1,size:"" ,desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},
      
          
-        ]
-        ,product:{}
+        ] ,
+    product:{}
 }
 
-const ProductsReducer=(state=initState,action)=>{ 
+const ProductsReducers=(state=initState,action)=>{ 
 
     switch(action.type){
         case "PRODUCT":
             return{...state,product :state.products.find(product=>product.id===parseInt(action.id))}
+        case"FILTER":
+        return{
+            ...state,product :state.products.filter((g)=>g.id !== state.products.id)
+        }
+
         default:
             return state ;
     }
 
+
 }
 
-export default ProductsReducer
+export default ProductsReducers

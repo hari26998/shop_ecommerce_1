@@ -80,7 +80,7 @@ transition: all 0.5s ease;
 }
 `;
 const Search = () => {
-  const {products}=useSelector(state=>state.ProductsReducer);
+  const {products}=useSelector(state=>state.ProductsReducers)
   const dispatch=useDispatch();
   const [quantity, setQuantity] = useState(1);
 

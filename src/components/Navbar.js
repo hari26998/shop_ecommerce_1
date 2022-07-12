@@ -9,10 +9,11 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   height: 50px;
-   width:100%;
+  width:100%;
   background:white;
-  
-  ${mobile({ height: "50px" })}
+  display:flex
+  ${mobile({ height: "40px",
+zindex:"1" })}
 `;
 
 const Wrapper = styled.div`
@@ -47,13 +48,15 @@ const SearchContainer = styled.div`
 const Button = styled.div`
 color:black;
   padding:0;
-  
+  width:30px;
+  height:10px;
   background-color: white;
   cursor: pointer;
   font-weight: 500;
   &:hover{
       background-color: #f8f4f4;
   }
+  ${mobile({ height:'20px' })}
 `;
 
 const Input = styled.input`
@@ -82,6 +85,8 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
+display:flex;
+justify-content:""
   color:black;
   font-size: 14px;
   cursor: pointer;
@@ -90,7 +95,9 @@ const MenuItem = styled.div`
 `;
 const MenuItem1 = styled.div`
 color:black;
-margin:10px;`;
+margin:10px;
+${mobile({ fontSize: "12px", marginLeft: "10px" })}
+`;
 
 const Navbar = () => {
   const {totalQuantities}=useSelector(state=>state.CartReducer)
@@ -104,7 +111,7 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
 
-           <Link to="/searchproducts" style={{textDecoration:'none'}}><Button>SEARCH FOR PRODUCTS</Button></Link> 
+           <Link to="/searchproducts" style={{textDecoration:'none'}}><Button>SEARCH</Button></Link> 
             {/* <Search style={{ color: "gray", fontSize: 16 }} /> */}
           </SearchContainer>
         </Left>

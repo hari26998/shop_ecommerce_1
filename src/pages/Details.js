@@ -125,7 +125,7 @@ margin:10px;`;
 const Price2= styled.span``;
 
 const Details = () => {
-  const {product}=useSelector(state=>state.ProductsReducer)
+  const {product}=useSelector(state=>state.ProductsReducers)
   const [quantity, setQuantity] = useState(1);
   const dispatch=useDispatch()
   const {id}=useParams();
@@ -147,7 +147,7 @@ const Details = () => {
     
     <Container>
       
-      <Announcement />
+      {/* <Announcement /> */}
       <Wrapper>
         <ImgContainer>
           <Image src={`/images/${product.image}`}  />

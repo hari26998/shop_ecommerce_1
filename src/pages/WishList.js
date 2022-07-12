@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import currencyFormatter from "currency-formatter";
-import Announcement from "../components/Announcement";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import Footer from "../components/Footer";
@@ -141,12 +140,12 @@ const Button = styled.button`
 `;
 
 const Wishlist = () => {
-    const {products,totalQuantities,totalPrice} = useSelector(state => state.WishListReducer);
+    const {products,totalPrice} = useSelector(state => state.WishListReducer);
     const dispatch = useDispatch();
     
      const [amount, setAmount] = useState(totalPrice)
      const[wishlist,setWishlist]=useState(products.length)
-     const {product}=useSelector(state=>state.ProductsReducer)
+     const {product}=useSelector(state=>state.ProductsReducers)
      const [quantity, setQuantity] = useState(1);
      
        

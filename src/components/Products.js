@@ -1,8 +1,14 @@
 import styled from "styled-components";
-import {useSelector} from "react-redux"
 import Product from "./Product";
-import { useEffect, useState } from "react";
-import Filter from "./Filter";
+  import { ProductOperations } from "../ProductOperations";
+  import { useProduct } from "../ProductContext";
+  import { productData } from "./data";
+  import {
+    getSortedProducts,
+    getPricedProducts,
+    getDiscountedProducts,
+    getFliteredProducts
+  } from "./utlities";
 
 
 const Container = styled.div`
@@ -16,47 +22,37 @@ const Container = styled.div`
 
 
 const Products = () => {
-  const{products}=useSelector(state=>state.ProductsReducer)
-  const [product1, setProduct1] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [sortBy, setSortBy] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("");
-  useEffect(() => {
-    setProduct1(products);
-    setFilteredProducts(products);
-  }, []);
 
-  useEffect(() => {
-    const filtered = selectedBrand
-      ? product1.filter((item) => item.brand === selectedBrand)
-      : product1;
-
-    setFilteredProducts(
-      sortBy
-        ? [...filtered].sort((a, b) =>
-            sortBy === "lowest" ? a.price - b.price : b.price - a.price
-          )
-        : [...filtered].sort((a, b) => (a.id > b.id ? 1 : -1))
+  const { state } = useProduct();
+  
+    const pricedProducts = getPricedProducts(
+      productData.productList,
+      state.discountPrice
     );
-  }, [selectedBrand, sortBy, product1]);
+    const discountedProducts = getDiscountedProducts(
+      pricedProducts,
+      state.discount
+    );
+    const categoryProducts = getFliteredProducts(
+      discountedProducts,
+      state.category.men,
+      state.category.women
+    );
+    const finalFilteredProducts = getSortedProducts(
+      categoryProducts,
+      state.sortBy
+    );
+
+ 
  
 
   return (
-    <div>
-    
-    <div> 
+    <div style={{display:"flex",justifyContent:"center"}}>
+            <ProductOperations />
 
     
-    <Filter
-    handleSort={setSortBy}
-    handleTagChange={setSelectedBrand}
-    selectedTag={selectedBrand}
-    sortBy={sortBy}/>
-    </div>
-    
     <Container>
-      
-      {filteredProducts.map((product) => (
+      {finalFilteredProducts.map((product) => (
         <Product product={product} key={product.id} />
       ))}
     </Container>
@@ -64,4 +60,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Products
