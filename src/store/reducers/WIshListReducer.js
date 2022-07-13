@@ -21,15 +21,17 @@ let findPro1;
                 return {
                     ...state, products: [...state.products, product],totalPrice: Tprice, totalQuantities1: Tquantities 
                 }}
-     
+               
+                
+
                 case 'REMOVEWL':
-                   const findPro1 = state.products.find(product => product.id === action.payload);
-                    const filtered = state.products.filter(product => product.id !== action.payload);
-                    return {
-                        ...state,
-                        products: filtered,
-                        totalPrice: state.totalPrice - findPro1.discountPrice * findPro1.quantity, totalQuantities1: state.totalQuantities1 - findPro1.quantity
-                    }
+                    const findPro1 = state.products.find(product => product.id === action.payload);
+                     const filtered = state.products.filter(product => product.id !== action.payload);
+                     return {
+                         ...state,
+                         products: filtered,
+                         totalPrice: state.totalPrice - findPro1.discountPrice * findPro1.quantity, totalQuantities1: state.totalQuantities1 - findPro1.quantity
+                     }
         default:
             return state ;
     }

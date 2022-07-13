@@ -47,8 +47,8 @@ const Products = () => {
  
 
   return (
-    <div style={{display:"flex",justifyContent:"center"}}>
-            <ProductOperations />
+    <div style={{display:"flex",justifyContent:"center",alignItems:"flex-start"}}>
+    <ProductOperations />
 
     
     <Container>

@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 import currencyFormatter from "currency-formatter";
 import { useState } from "react";
+import Newsletter from "../components/Newsletter";
 
 
 const Container = styled.div`
@@ -205,8 +206,6 @@ const Cart = () => {
 
   return (
     <Container>
-      
-      
       <Wrapper>
         <Title>YOUR CART DETAILS</Title>
         {cart > 0? <>
@@ -269,6 +268,7 @@ const Cart = () => {
         </Bottom>
         </>:"Your Cart is empty "}
       </Wrapper>
+      <Newsletter/>
       <Footer />
     </Container>
   );

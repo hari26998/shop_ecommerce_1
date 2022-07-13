@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import currencyFormatter from "currency-formatter";
 import styled from "styled-components";
@@ -130,23 +130,28 @@ const Hr = styled.hr`
 `;
 const Button = styled.button`
   padding: 15px;
-  border: 2px solid teal;
-  background-color: white;
+  border: 1px solid white;
+  background-color: black;
+  color:white;
   cursor: pointer;
   font-weight: 500;
-  &:hover{
-      background-color: #f8f4f4;
-  }
+  // &:hover{
+  //     background-color: #f8f4f4;
+  // }
 `;
 
 const Wishlist = () => {
     const {products,totalPrice} = useSelector(state => state.WishListReducer);
+    
+    
     const dispatch = useDispatch();
     
      const [amount, setAmount] = useState(totalPrice)
      const[wishlist,setWishlist]=useState(products.length)
      const {product}=useSelector(state=>state.ProductsReducers)
      const [quantity, setQuantity] = useState(1);
+
+     
      
        
     return (
@@ -158,7 +163,8 @@ const Wishlist = () => {
         {wishlist > 0? <>
         <Bottom>
           <Info>
-            {products.map(product=>(<div>
+            {products.map(product=>(
+            <div key={product.id}>
             <Product>
               <ProductDetail>
                 <Image src={`/images/${product.image}`} alt="/"/>

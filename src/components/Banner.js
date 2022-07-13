@@ -14,8 +14,8 @@ height:"auto" })}
 
 const Banner = () => {
   return (
-    <Container4 className="Header">
-       <span><img src="images/banner6.jpg" alt=""/></span> 
+    <Container4 >
+       <span ><img style={{width:"1400px",height:"500px"}} src="https://res.cloudinary.com/praveen-kumar/image/upload/v1647900573/ecommerce-banner_vbv1gm.webp" alt=""/></span> 
     </Container4>
   )
 }
