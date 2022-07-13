@@ -9,6 +9,7 @@ import {
 
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Product from "../components/Product";
 
 const Info = styled.div`
 opacity: 0;
@@ -101,7 +102,7 @@ const Search = () => {
 
   return (
     
-      <Container3>
+      <Container3 >
       <div className="searchBar">
         <input
           type="text"
@@ -134,21 +135,7 @@ const Search = () => {
 &&
 <Container>
         {filteredProducts.map((product) => (
-          <Container1>
-          <Circle/>
-          <Image src={`/images/${product.image}`} alt="image name"/>
-          <Info>
-            <Icon>
-              <ShoppingCartOutlined  onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})} />
-            </Icon>
-            <Link to={`/details/${product.id}`}><Icon>
-              <SearchOutlined/>
-            </Icon></Link>
-            <Icon>
-              <FavoriteBorderOutlined  onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}/>
-            </Icon>
-          </Info>
-        </Container1>
+         <Product product={product}/>
           
         ))}
       </Container>}

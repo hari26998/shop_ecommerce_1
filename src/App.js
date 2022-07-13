@@ -9,8 +9,7 @@ import Search from "./pages/Search";
 import store from "./store"
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router,Route } from "react-router-dom";
-
-
+import "./App.css"
 
 
 

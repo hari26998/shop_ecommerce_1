@@ -7,6 +7,7 @@ import { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import "./product.css"
   import styled from "styled-components";
 const Container2=styled.div`
 z-index:0;
@@ -84,26 +85,74 @@ z-index:0;
     const [quantity, setQuantity] = useState(1);
 
     const dispatch=useDispatch()
+
+
+    return(  
+      <body>
+      <div class="hero-container">
+        <div class="main-container">
+          <div class="poster-container">
+            <a href="#"><img src={`/images/${product.image}`} alt="product image" class="poster" /></a>
+          </div>
+          <div class="ticket-container">
+            <div class="ticket__content">
+              <h4 class="ticket__movie-title">{product.brand}</h4>
+              <p class="ticket__movie-slogan">
+                {product.name}
+              </p>
+              <p class="ticket__current-price">RS {product.discountPrice}</p>
+              <p class="ticket__old-price">RS{product.price} {product.discount}%</p>
+              <div style={{display:"flex",justifyContent:"flex-end"}}>
+              <button  onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})} class="ticket__buy-btn"> ADD TO CART</button>
+              <button onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})} class="ticket__buy-btn">ADD TO WISHLIST</button>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+    </div>
+        </body>
+  
+     
     
-    return (
-      <Container2>
-      <Container>
-        <Circle/>
-        <Image src={`/images/${product.image}`} alt="image name"/>
-        <Info>
-          <Icon>
-            <ShoppingCartOutlined  onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})} />
-          </Icon>
-          <Link to={`/details/${product.id}`}><Icon>
-            <SearchOutlined/>
-          </Icon></Link>
-          <Icon>
-            <FavoriteBorderOutlined  onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}/>
-          </Icon>
-        </Info>
-      </Container>
-      </Container2>
-    );
-  };
+    /* //   <div style={{ border:"1px solid black",margin:"10px",boxshadow: "10px 10px 5px 0px rgba(0,0,0,0.75)"}}>
+    //     <div>
+    //       <img style={{border:"1px solid black"}}src={`/images/${product.image}`} alt="image name"/>
+    //     </div>
+    //     <div style={{display:"flex",justifyContent:"space-between"}}>
+    //       <span style={{textTransform:"uppercase"}}>{product.brand}</span>
+    //       <span style={{textTransform:"uppercase"}}>{product.name}</span>
+    //     </div>
+    //     <div style={{display:"flex",justifyContent:"space-between"}}>
+    //       <div style={{display:"flex",justifyContent:"flex-start"}}>
+    //       <span style={{textDecoration:"line-through"}}>RS{product.price}</span>
+    //       <span>{product.discount}%</span>
+    //       </div>
+    //       <div>{product.discountPrice} </div>
+    //     </div>
+    //   </div> */  
+    /* // 
+    
+    // return (
+    //   <Container2>
+    //   <Container>
+    //     <Circle/>
+    //     <Image src={`/images/${product.image}`} alt="image name"/>
+        {/* <div> {product.brand}</div> */
+    //     <Info>
+    //       <Icon>
+    //         <ShoppingCartOutlined  onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})} />
+    //       </Icon>
+    //       <Link to={`/details/${product.id}`}><Icon>
+    //         <SearchOutlined/>
+    //       </Icon></Link>
+    //       <Icon>
+    //         <FavoriteBorderOutlined  onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}/>
+    //       </Icon>
+    //     </Info>
+    //   </Container>
+    //   </Container2>
+    // ); */}
+  )};
   
   export default Product ;
