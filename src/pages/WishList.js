@@ -5,6 +5,7 @@ import currencyFormatter from "currency-formatter";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import Footer from "../components/Footer";
+import Newsletter from '../components/Newsletter';
 
 
 const Container = styled.div`
@@ -196,6 +197,7 @@ const Wishlist = () => {
           
         </Bottom>
         </>:"Your WishList is empty "}
+        <Newsletter/>
       </Wrapper>
       <Footer />
     </Container>
