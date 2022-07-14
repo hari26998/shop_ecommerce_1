@@ -92,7 +92,8 @@ z-index:0;
       <div class="hero-container">
         <div class="main-container">
           <div class="poster-container">
-            <a href="#"><img src={`/images/${product.image}`} alt="product image" class="poster" /></a>
+            <a href="#">
+            <Link to={`/details/${product.id}`}><img src={`/images/${product.image}`} alt="product image" class="poster" /></Link></a>
           </div>
           <div class="ticket-container">
             <div class="ticket__content">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import SearchIcon from "@material-ui/icons/Search"
 import {
   FavoriteBorderOutlined,
   SearchOutlined,
@@ -10,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Product from "../components/Product";
+import { Button, TextField } from "@mui/material";
 
 const Info = styled.div`
 opacity: 0;
@@ -28,7 +30,7 @@ cursor: pointer;
 `;
 
 const Container3=styled.div`
-margin-top: 100px;`;
+;`;
 const Container=styled.div`
 padding: 20px;
     display: flex;
@@ -103,7 +105,24 @@ const Search = () => {
   return (
     
       <Container3 >
-      <div className="searchBar">
+<div style={{display:"flex",margin:"15px 0"}}>
+          <TextField
+            style={{ flex: 1 }}
+            className="searchBox"
+            label="Search"
+            variant="filled"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Button
+            onClick={submitHandler}
+            variant="contained"
+            style={{ marginLeft: 10 }}
+          >
+            <SearchIcon fontSize="large" />
+          </Button>
+        </div>
+
+      {/* <div className="searchBar">
         <input
           type="text"
           className="input"
@@ -129,7 +148,7 @@ const Search = () => {
             ></path>
           </svg>
         </button>
-      </div>
+      </div> */}
       
 { search.length!=0 
 &&
