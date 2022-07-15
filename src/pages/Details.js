@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 const Container = styled.div``;
 
 const Wrapper = styled.div`
+  margin:20px 0;
   padding: 50px;
   display: flex;
   ${mobile({ padding: "10px", flexDirection:"column" })}

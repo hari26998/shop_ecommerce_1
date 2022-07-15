@@ -7,7 +7,7 @@ const ProductOperations = () => {
   const { men, women } = category;
 
   return (
-    <fieldset style={{width:"1000px",height:"50%",alignItems:"flex-start"}}>
+    <fieldset className="Product_op" style={{width:"1000px",height:"50%",alignItems:"flex-start"}}>
       <button
         onClick={() => dispatch({ type: "CLEAR" })}
         style={{backgroundColor:"white",color:"black",border:"1px solid teal"}}
@@ -145,7 +145,7 @@ const ProductOperations = () => {
       </section>
       <h3>PRICE</h3>
       <div class="slider-container">
-        <datalist id="tickmarks"
+        <datalist className="tickmarks"
          style={{
           display: "flex",
           width:"100%",

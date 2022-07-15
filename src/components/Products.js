@@ -47,7 +47,7 @@ const Products = () => {
  
 
   return (
-    <div style={{display:"flex",justifyContent:"center",alignItems:"flex-start"}}>
+    <div className="mobile_filter" style={{display:"flex",justifyContent:"center",alignItems:"flex-start"}}>
     <ProductOperations />
 
     

@@ -121,7 +121,7 @@ const Navbar = () => {
         <Right>
           <MenuItem>REGISTER</MenuItem>
           <Link to="/login" style={{textDecoration:'none'}} >
-          <MenuItem >SIGN IN</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
           </Link>
           <MenuItem1>
             <Badge style={{color:'teal'}} badgeContent={totalQuantities} color="primary">
