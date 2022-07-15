@@ -60,32 +60,14 @@
   }
 }
 
-@media(min-width:360px){
+@media(max-width:420px){
   .Header{
     height: 300px;
     width:300px;
     object-fit: fill;
     display:none;
   }
-  .banner img{
-  width: 100%;
-  height:40vhx;
-  object-fit: cover;
+
   
-  height:300px;
-  }
-  .Product_op{
-    display:flex;
-    flex-direction: column;
-    width:300px;
-    border:0px
-  }
-  .mobile_filter{
-    display:flex;
-    flex-direction: column;
-    
-  }
-  .tickmarks{
-    width:100%
-  }
+
 }

@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search"
 import { useDispatch } from "react-redux";
 import Product from "../components/Product";
 import { Button, TextField } from "@mui/material";
+import { mobile } from "../responsive";
 
 const Info = styled.div`
 opacity: 0;
@@ -23,6 +24,8 @@ cursor: pointer;
 `;
 
 const Container3=styled.div`
+${mobile({ margin:"20px 0" })}
+
 ;`;
 const Container=styled.div`
 padding: 20px;
@@ -98,7 +101,7 @@ const Search = () => {
   return (
     
       <Container3>
-<div style={{display:"flex",margin:"15px 0"}}>
+<div  style={{display:"flex",margin:"15px 0"}}>
           <TextField
             style={{ flex: 1 }}
             className="searchBox"

@@ -12,8 +12,9 @@ const Container = styled.div`
   width:100%;
   background:white;
   display:flex
+
   ${mobile({ height: "40px",
-zindex:"1" })}
+zindex:"1" ,})}
 `;
 
 const Wrapper = styled.div`
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${mobile({ padding: "10px 0px" })}
+  ${mobile({ padding: "10px 0px" ,justifyContent:"space-evenly"})}
   
 `;
 
@@ -74,7 +75,7 @@ color:black;
 width:100px
 text-Decoration:none;
   font-weight: bold;
-  ${mobile({ fontSize: "24px" })}
+  ${mobile({ fontSize: "24px",width:"30px" })}
 `;
 const Right = styled.div`
   flex: 1;

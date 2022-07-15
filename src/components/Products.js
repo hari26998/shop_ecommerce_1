@@ -9,8 +9,12 @@ import Product from "./Product";
     getDiscountedProducts,
     getFliteredProducts
   } from "./utlities";
+import { flexbox } from "@mui/system";
+import { mobile } from "../responsive";
 
-
+const Container3=styled.div`
+${mobile({display:"flex",flexDirection:"column" })}
+`;
 const Container = styled.div`
     padding: 20px;
     display: flex;
@@ -47,7 +51,7 @@ const Products = () => {
  
 
   return (
-    <div className="mobile_filter" style={{display:"flex",justifyContent:"center",alignItems:"flex-start"}}>
+    <Container3 className="mobile_filter" style={{display:"flex",justifyContent:"center",alignItems:"flex-start"}}>
     <ProductOperations />
 
     
@@ -56,7 +60,7 @@ const Products = () => {
         <Product product={product} key={product.id} />
       ))}
     </Container>
-    </div>
+    </Container3>
   );
 };
 

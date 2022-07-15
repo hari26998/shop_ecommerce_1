@@ -1,13 +1,26 @@
 
 
-  import { useProduct } from "./ProductContext";
+  import styled from "styled-components";
+import { useProduct } from "./ProductContext";
+import { mobile } from "./responsive";
 const ProductOperations = () => {
   const { state, dispatch } = useProduct();
   const { sortBy, category, discountPrice, discount } = state;
   const { men, women } = category;
 
+  const Container=styled.datalist`
+  ${mobile({ display:"flex",width:"50%" })}
+  
+  `;
+  const Container1 =styled.input`
+  ${mobile({ display:"flex",width:"50%" })}
+
+  `;
+  const Container3= styled.fieldset`
+  ${mobile({ width:"50%" })}
+  `;
   return (
-    <fieldset className="Product_op" style={{width:"1000px",height:"50%",alignItems:"flex-start"}}>
+    <Container3 className="Product_op" style={{width:"1000px",height:"50%",alignItems:"flex-start"}}>
       <button
         onClick={() => dispatch({ type: "CLEAR" })}
         style={{backgroundColor:"white",color:"black",border:"1px solid teal"}}
@@ -144,8 +157,8 @@ const ProductOperations = () => {
         </ul>
       </section>
       <h3>PRICE</h3>
-      <div class="slider-container">
-        <datalist className="tickmarks"
+      
+        <Container className="tickmarks"
          style={{
           display: "flex",
           width:"100%",
@@ -157,8 +170,8 @@ const ProductOperations = () => {
           <option value="3000" label="3k"></option>
           <option value="4000" label="4k"></option>
           <option value="5000" label="5k"></option>
-        </datalist>
-        <input
+        </Container>
+        <Container1
           type="range"
           name=""
           class="slider"
@@ -174,8 +187,8 @@ const ProductOperations = () => {
             // background: "teal"
           }}
         />
-      </div>
-    </fieldset>
+      
+    </Container3>
   );
 };
 
