@@ -217,7 +217,8 @@ const Cart = () => {
               description:"for testing purpose",
               handler: function(response){
                 alert(response.razorpay_payment_id);
-                dispatch({type:'CLEARCART'})
+                dispatch({type:'CLEARCART'}) 
+
                
             },
               prefill: {

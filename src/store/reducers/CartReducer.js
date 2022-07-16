@@ -18,10 +18,11 @@ const CartReducer = (state = initState, action) => {
         if(check){
             return state;
         } else {
+            product.quantity = quantity;
             const Tprice = state.totalPrice + product.discountPrice * quantity;
             const Tquantities = state.totalQuantities + quantity;
            
-            product.quantity = quantity;
+           
             return {
                 ...state, products: [...state.products, product],totalPrice: Tprice, totalQuantities: Tquantities 
             }}
@@ -72,7 +73,6 @@ const CartReducer = (state = initState, action) => {
                         return{
                             ...state,
                             products:[],
-                            totalPrice:0,
                             totalQuantities:0
                         }
                          
