@@ -38,6 +38,7 @@ const InfoContainer = styled.div`
 `;
 
 const Title = styled.h1`
+
   font-weight: 200;
 `;
 
@@ -48,6 +49,9 @@ const Desc = styled.p`
 const Price = styled.span`
   font-weight: 100;
   font-size: 40px;
+`;
+const Discount =styled.span`
+font-size: 24px
 `;
 
 const FilterContainer = styled.div`
@@ -102,7 +106,9 @@ const Amount = styled.span`
   width: 30px;
   height: 30px;
   border-radius: 10px;
-  border: 1px solid teal;
+  border: 1px solid white;
+  color:white;
+  background-color:black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,19 +117,21 @@ const Amount = styled.span`
 
 const Button = styled.button`
   padding: 15px;
-  border: 2px solid teal;
-  background-color: white;
+  border: 1px solid white;
+  background-color: black;
+  color:white;
   cursor: pointer;
   font-weight: 500;
-  &:hover{
-      background-color: #f8f4f4;
-  }
+  // &:hover{
+  //     background-color: #f8f4f4;
+  // }
 `;
 const Price1= styled.span`
-text-decoration: line-through;
-margin:10px;`;
+margin:20px;
+font-size:24px`;
 
-const Price2= styled.span``;
+const Price2= styled.span`
+font-size:24px`;
 
 const Details = () => {
   const {product}=useSelector(state=>state.ProductsReducers)
@@ -154,15 +162,17 @@ const Details = () => {
           <Image src={`/images/${product.image}`}  />
         </ImgContainer>
         <InfoContainer>
-          <Title>{product.name}</Title>
+          <Title style={{textTransform:"uppercase"}}>{product.name}</Title>
           <Desc>
             {product.desc}
           </Desc>
           <Price>
-          <Price1><span>{currencyFormatter.format(product.price, { code: 'INR' })}</span></Price1>
-
-             <Price2><span>{currencyFormatter.format(product.discountPrice, { code: 'INR' })}</span></Price2>
+          <Price1>
+          <span style={{textDecoration:"line-through"}}>{currencyFormatter.format(product.price, { code: 'INR' })}</span>
+          <span style={{fontSize:"24px",fontWeight:"bold"}}>{product.discount}%</span></Price1>
           </Price>
+             <Price2><span>{currencyFormatter.format(product.discountPrice, { code: 'INR' })}</span></Price2>
+         
              
           <FilterContainer>
           <Filter>

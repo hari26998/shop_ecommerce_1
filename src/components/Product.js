@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./product.css"
 import styled from "styled-components";
+import { mobile } from "../responsive";
 const Container2=styled.div`
 z-index:0;
 `;
@@ -78,6 +79,38 @@ const Icon = styled.div`
     transform: scale(1.1);
   }
 `;
+const Filter = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FilterTitle = styled.span`
+  font-size: 20px;
+  font-weight: 200;
+`;
+
+const FilterColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 0px 5px;
+  cursor: pointer;
+`;
+
+const FilterSize = styled.select`
+  margin-left: 10px;
+  padding: 5px;
+`;
+
+const FilterSizeOption = styled.option``;
+const FilterContainer = styled.div`
+  width: 100%;
+  margin:  0px;
+  display: flex;
+  justify-content: space-between;
+  ${mobile({ width: "100%" })}
+`;
 
 const Product = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
@@ -95,7 +128,21 @@ const Product = ({ product }) => {
         <div style={{textTransform:"uppercase",fontWeight:"bold"}}> {product.brand}</div>
           <div className="product__name" >
               <span >{product.name}</span>
-              <span className="size">{product.size}</span> 
+             <span>
+             <FilterContainer>
+          <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
+          </span> 
+              {/* <span className="size">{product.size}</span>  */}
             </div>
             <div className="row">
                 <div className="col-6">
