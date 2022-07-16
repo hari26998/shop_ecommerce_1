@@ -72,6 +72,7 @@ const CartReducer = (state = initState, action) => {
                         return{
                             ...state,
                             products:[],
+                            totalPrice:0,
                             totalQuantities:0
                         }
                          

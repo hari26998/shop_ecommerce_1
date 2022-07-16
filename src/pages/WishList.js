@@ -114,7 +114,7 @@ const ProductAmount = styled.div`
 `;
 
 const ProductPrice = styled.div`
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 200;
   {mobile({ marginBottom: "20px" })}
 `;
@@ -181,6 +181,7 @@ const Wishlist = () => {
                 </Details>
               </ProductDetail>
               <PriceDetail>
+                <b>PRODUCT PRICE:</b>
                <ProductPrice>
                     {currencyFormatter.format(product.discountPrice, {code: 'INR'})}
                </ProductPrice>
