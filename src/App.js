@@ -10,6 +10,8 @@ import store from "./store"
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router,Route } from "react-router-dom";
 import "./App.css"
+import ScrollButton from "./ScrollButton";
+
 
 
 
@@ -27,6 +29,7 @@ const App = () => {
           <Route path="/wishlist" exact component={Wishlist}/>
           <Route path="/login" exact component={Login} />
           <Route path="/searchproducts" exact component={Search}/>
+          {/* <ScrollButton /> */}
 
     </Provider>
     </Router>

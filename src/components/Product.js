@@ -1,159 +1,167 @@
 import {
-    FavoriteBorderOutlined,
-    SearchOutlined,
-    ShoppingCartOutlined,
-  } from "@material-ui/icons";
+  FavoriteBorderOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
 import { useState } from "react";
+import currencyFormatter from 'currency-formatter';
+import { BsFillXCircleFill } from "react-icons/bs";
+
 
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./product.css"
-  import styled from "styled-components";
+import styled from "styled-components";
 const Container2=styled.div`
 z-index:0;
 `;
-  const Info = styled.div`
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    cursor: pointer;
-  `;
+const Info = styled.div`
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+`;
+
+const Container = styled.div`
+  flex: 1;
+  margin: 5px;
+  padding:10px;
+  min-width: 280px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5fbfd;
+  position: relative;
   
-  const Container = styled.div`
-    flex: 1;
-    margin: 5px;
-    padding:10px;
-    min-width: 280px;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5fbfd;
-    position: relative;
-    
+  &:hover ${Info}{
+    opacity: 1;
+  }
+`;
 
-    &:hover ${Info}{
-      opacity: 1;
+const Circle = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  overflow:hidden;
+`;
 
-    }
+const Image = styled.img`
+  height: 75%;
+  z-index: 2;
+  overflow:hidden;
+`;
 
-  `;
-  
-  const Circle = styled.div`
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-    overflow:hidden;
+const Icon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: all 0.5s ease;
+  &:hover {
+    background-color: #e9f5f5;
+    transform: scale(1.1);
+  }
+`;
 
-  `;
-  
-  const Image = styled.img`
-    height: 75%;
-    z-index: 2;
-    overflow:hidden;
+const Product = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
 
-  `;
-  
-  const Icon = styled.div`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    transition: all 0.5s ease;
-    &:hover {
-      background-color: #e9f5f5;
-      transform: scale(1.1);
-    }
-  `;
-  
-  const Product = ({ product }) => {
-    const [quantity, setQuantity] = useState(1);
-
-    const dispatch=useDispatch()
+  const dispatch=useDispatch()
 
 
-    return(  
-      <body>
-      <div class="hero-container">
-        <div class="main-container">
-          <div class="poster-container">
-            <a href="#">
-            <Link to={`/details/${product.id}`}><img src={`/images/${product.image}`} alt="product image" class="poster" /></Link></a>
-          </div>
-          <div class="ticket-container">
-            <div class="ticket__content">
-              <h4 class="ticket__movie-title">{product.brand}</h4>
-              <p class="ticket__movie-slogan">
-                {product.name}
-              </p>
-              <p class="ticket__current-price">RS {product.discountPrice}</p>
-              <p class="ticket__old-price">RS{product.price} {product.discount}%</p>
-              <div style={{display:"flex",justifyContent:"flex-end"}}>
-              <button  onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})} class="ticket__buy-btn"> ADD TO CART</button>
-              <button onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})} class="ticket__buy-btn">ADD TO WISHLIST</button>
-              </div>
-             
+  return(  
+    <body style={{border:"1px solid black",marginBottom:"10px",display:"flex",justifyContent:"space-evenly"}}>
+    <div class="hero-container">
+      <div class="main-container">
+        <div class="poster-container">
+          <a href="#">
+          <Link to={`/details/${product.id}`}><img src={`/images/${product.image}`} alt="product image" class="poster" /></Link></a>
+        <div style={{textTransform:"uppercase",fontWeight:"bold"}}> {product.brand}</div>
+          <div className="product__name" >
+              <span >{product.name}</span>
+              <span className="size">{product.size}</span> 
             </div>
-          </div>
-        </div>
-    </div>
-        </body>
+            <div className="row">
+                <div className="col-6">
+                    <div className="product__price">
+                    <span className="actualPrice">{currencyFormatter.format(product.price, { code: 'INR' })}</span> 
+                    <span className="discount">{product.discount}%</span>
+
+                    </div>
+                   
+                   
+                </div>
+                   <div className="col-6">
+                       <div className="product__discount__price">
+                           {currencyFormatter.format(product.discountPrice, { code: 'INR' })}
+                       </div>
+                   </div>
+                   <button className="btn-default" onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})} >add to wishlist</button>
+                   <button className="btn-default" onClick={()=>dispatch({type:"ADD_TO_CART",payload:{product,quantity}})}>add to cart</button>
+            </div>
+       
+       
+      </div>
+  </div>
+  </div>
+      </body>
+
+   
   
-     
-    
-    /* //   <div style={{ border:"1px solid black",margin:"10px",boxshadow: "10px 10px 5px 0px rgba(0,0,0,0.75)"}}>
-    //     <div>
-    //       <img style={{border:"1px solid black"}}src={`/images/${product.image}`} alt="image name"/>
-    //     </div>
-    //     <div style={{display:"flex",justifyContent:"space-between"}}>
-    //       <span style={{textTransform:"uppercase"}}>{product.brand}</span>
-    //       <span style={{textTransform:"uppercase"}}>{product.name}</span>
-    //     </div>
-    //     <div style={{display:"flex",justifyContent:"space-between"}}>
-    //       <div style={{display:"flex",justifyContent:"flex-start"}}>
-    //       <span style={{textDecoration:"line-through"}}>RS{product.price}</span>
-    //       <span>{product.discount}%</span>
-    //       </div>
-    //       <div>{product.discountPrice} </div>
-    //     </div>
-    //   </div> */  
-    /* // 
-    
-    // return (
-    //   <Container2>
-    //   <Container>
-    //     <Circle/>
-    //     <Image src={`/images/${product.image}`} alt="image name"/>
-        {/* <div> {product.brand}</div> */
-    //     <Info>
-    //       <Icon>
-    //         <ShoppingCartOutlined  onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})} />
-    //       </Icon>
-    //       <Link to={`/details/${product.id}`}><Icon>
-    //         <SearchOutlined/>
-    //       </Icon></Link>
-    //       <Icon>
-    //         <FavoriteBorderOutlined  onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}/>
-    //       </Icon>
-    //     </Info>
-    //   </Container>
-    //   </Container2>
-    // ); */}
-  )};
+  /* //   <div style={{ border:"1px solid black",margin:"10px",boxshadow: "10px 10px 5px 0px rgba(0,0,0,0.75)"}}>
+  //     <div>
+  //       <img style={{border:"1px solid black"}}src={`/images/${product.image}`} alt="image name"/>
+  //     </div>
+  //     <div style={{display:"flex",justifyContent:"space-between"}}>
+  //       <span style={{textTransform:"uppercase"}}>{product.brand}</span>
+  //       <span style={{textTransform:"uppercase"}}>{product.name}</span>
+  //     </div>
+  //     <div style={{display:"flex",justifyContent:"space-between"}}>
+  //       <div style={{display:"flex",justifyContent:"flex-start"}}>
+  //       <span style={{textDecoration:"line-through"}}>RS{product.price}</span>
+  //       <span>{product.discount}%</span>
+  //       </div>
+  //       <div>{product.discountPrice} </div>
+  //     </div>
+  //   </div> */  
+  /* // 
   
-  export default Product ;
+  // return (
+  //   <Container2>
+  //   <Container>
+  //     <Circle/>
+  //     <Image src={`/images/${product.image}`} alt="image name"/>
+      {/* <div> {product.brand}</div> */
+  //     <Info>
+  //       <Icon>
+  //         <ShoppingCartOutlined  onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})} />
+  //       </Icon>
+  //       <Link to={`/details/${product.id}`}><Icon>
+  //         <SearchOutlined/>
+  //       </Icon></Link>
+  //       <Icon>
+  //         <FavoriteBorderOutlined  onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}/>
+  //       </Icon>
+  //     </Info>
+  //   </Container>
+  //   </Container2>
+  // ); */}
+)};
+
+export default Product ;

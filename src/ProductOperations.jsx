@@ -13,10 +13,11 @@ const ProductOperations = () => {
   
   `;
   const Container1 =styled.input`
-  ${mobile({ display:"flex",width:"50%" })}
+  ${mobile({ type:"range",width:"50%" })}
 
   `;
   const Container3= styled.fieldset`
+  
   ${mobile({ width:"50%" })}
   `;
   return (

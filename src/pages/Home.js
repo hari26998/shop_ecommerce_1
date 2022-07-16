@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Products from "../components/Products"; 
+import ScrollButton from "../ScrollButton";
 const Home = () => {
  
   
@@ -22,6 +23,7 @@ const Home = () => {
       <Products />
       
       <Footer/>
+      <ScrollButton/>
     </div>
   );
 };
