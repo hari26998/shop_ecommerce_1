@@ -163,6 +163,41 @@ cursor:pointer;
   color: white;
   font-weight: 600;
 `;
+const FilterContainer = styled.div`
+  width: 50%;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  ${mobile({ width: "100%" })}
+`;
+
+const Filter = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FilterTitle = styled.span`
+  font-size: 20px;
+  font-weight: 200;
+
+`;
+
+const FilterColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 0px 5px;
+  cursor: pointer;
+`;
+
+const FilterSize = styled.select`
+  margin-left: 10px;
+  padding: 5px;
+`;
+
+const FilterSizeOption = styled.option``;
+
 
 const Cart = () => {
   const [quantity, setQuantity] = useState(1);
@@ -216,27 +251,42 @@ const Cart = () => {
               <ProductDetail>
                 <Image src={`/images/${product.image}`} alt="/"/>
                 <Details>
-                  <ProductName>
-                    <b>Product:</b> {product.name}
+                  <ProductName style={{textTransform:"capitalize"}}>
+                    <b style={{fontSize:"20px"}}>PRODUCT:</b> 
+                    {product.name}
                   </ProductName>
+                  <FilterContainer>
+          <Filter>
+              <FilterTitle style={{fontWeight:"bold"}}>SIZE:</FilterTitle>
+              <FilterSize>
                 
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
                   
-                  <ProductSize>
+                  {/* <ProductSize>
                     <b>Size:</b> {product.size}
-                  </ProductSize>
+                  </ProductSize> */}
                 </Details>
               </ProductDetail>
               <PriceDetail>
-                <ProductAmountContainer>
+                <p style={{fontWeight:"bold"}}>NO OF PRODUCTS:</p>
+                <ProductAmountContainer style={{border:"1px solid black",margin:"2px"}}>
+              
                  <span> <Remove style={{cursor:'pointer'}}  onClick={() => dispatch({type: 'DEC', payload: product.id})} /></span>
                   <ProductAmount>{product.quantity}</ProductAmount>
                   <span ><Add style={{cursor:'pointer'}}onClick={() => dispatch({type: 'INC', payload: product.id})}/></span>
                 </ProductAmountContainer>
+               <p style={{fontWeight:"bold"}}>PRODUCT PRICE:</p>
                 <ProductPrice>
                     {currencyFormatter.format(product.discountPrice, {code: 'INR'})}
                </ProductPrice>
                <ProductSize>
-               <b>SubTotal:</b><ProductPrice1>{currencyFormatter.format(product.discountPrice * product.quantity, {code: 'INR'})}</ProductPrice1>
+               <b>SUBTOTAL:</b><ProductPrice1>{currencyFormatter.format(product.discountPrice * product.quantity, {code: 'INR'})}</ProductPrice1>
                </ProductSize>
                <button style={{border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}>ADD TO WISHLIST</button>
                <button style={{width:"124px",marginTop:"10px",border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={() => dispatch({type: 'REMOVE', payload: product.id})}>REMOVE</button>

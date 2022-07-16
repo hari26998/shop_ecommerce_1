@@ -171,12 +171,12 @@ const Wishlist = () => {
                 <Image src={`/images/${product.image}`} alt="/"/>
                 <Details>
                   <ProductName>
-                    <b>Product:</b> {product.name}
+                    <b>PRODUCT:</b> {product.name}
                   </ProductName>
                 
                   
                   <ProductSize>
-                    <b>Size:</b> {product.size}
+                    <b>SIZE:</b> {product.size}
                   </ProductSize>
                 </Details>
               </ProductDetail>
