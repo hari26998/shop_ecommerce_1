@@ -208,10 +208,11 @@ const Cart = () => {
         const[price,setPrice]=useState(totalPrice)
         const handleSubmit=(e)=>{
           e.preventDefault();
+          console.log(amount)
             var options = {
               key: "rzp_test_Pq4xjXI56Z8zpl",
               key_secret:"yZFL16k0xYfMRvuvJJdXi59L",
-              amount:amount *100 ,
+              amount:totalPrice *100 ,
               currency:"INR",
               name:"STARTUP_PROJECTS",
               description:"for testing purpose",
@@ -237,7 +238,7 @@ const Cart = () => {
             pay.open();
 
         setCart("")
-        setPrice("")
+        // setAmount(0)
         }
 
   return (
