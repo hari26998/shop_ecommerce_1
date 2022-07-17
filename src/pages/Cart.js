@@ -109,19 +109,19 @@ const ProductAmountContainer = styled.div`
 `;
 
 const ProductAmount = styled.div`
-  font-size: 24px;
+  font-size: 16px;
   margin: 5px;
   ${mobile({ margin: "5px 15px" })}
 `;
 
 const ProductPrice = styled.div`
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 200;
   {mobile({ marginBottom: "20px" })}
 `;
 
 const ProductPrice1= styled.div`
-font-size: 30px;
+font-size: 20px;
   font-weight: 200;
   {mobile({ marginBottom: "20px" })}
 `;
@@ -177,7 +177,7 @@ const Filter = styled.div`
 `;
 
 const FilterTitle = styled.span`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 200;
 
 `;
@@ -203,12 +203,12 @@ const Cart = () => {
   const [quantity, setQuantity] = useState(1);
   const dispatch=useDispatch()
   const {products,totalQuantities,totalPrice} = useSelector(state => state.CartReducer);
-  const [amount, setAmount] = useState(totalPrice)
+  // const [amount, setAmount] = useState(totalPrice)
         const[cart,setCart]=useState(products.length)
         const[price,setPrice]=useState(totalPrice)
         const handleSubmit=(e)=>{
           e.preventDefault();
-          console.log(amount)
+          // console.log(amount)
             var options = {
               key: "rzp_test_Pq4xjXI56Z8zpl",
               key_secret:"yZFL16k0xYfMRvuvJJdXi59L",
@@ -247,14 +247,14 @@ const Cart = () => {
         <Title>YOUR CART DETAILS</Title>
         {cart > 0? <>
         <Bottom>
-          <Info>
+          <Info style={{border:"1px solid black",padding:"15px"}}>
             {products.map(product=>(<div>
             <Product>
               <ProductDetail>
                 <Image src={`/images/${product.image}`} alt="/"/>
                 <Details>
                   <ProductName style={{textTransform:"capitalize"}}>
-                    <b style={{fontSize:"20px"}}>PRODUCT:</b> 
+                    <b style={{fontSize:"16px"}}>PRODUCT:</b> 
                     {product.name}
                   </ProductName>
                   <FilterContainer>
@@ -320,8 +320,8 @@ const Cart = () => {
         </Bottom>
         </>:"Your Cart is empty "}
       </Wrapper>
-      <Newsletter/>
-      <Footer />
+      {/* <Newsletter/> */}
+      <Footer style={{position:"fixed"}} />
     </Container>
   );
 };

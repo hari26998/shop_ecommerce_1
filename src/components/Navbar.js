@@ -12,7 +12,6 @@ const Container = styled.div`
   width:100%;
   background:white;
   display:flex
-
   ${mobile({ height: "40px",
 zindex:"1" ,})}
 `;
@@ -105,6 +104,7 @@ const Navbar = () => {
   const {totalQuantities1}=useSelector(state=>state.WishListReducer)
 
 
+
   return (
     <Container>
       <Wrapper>
@@ -120,17 +120,21 @@ const Navbar = () => {
           <Link to="/" style={{textDecoration:'none'}}><Logo > HOME</Logo></Link>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
           <Link to="/login" style={{textDecoration:'none'}} >
           <MenuItem>SIGN IN</MenuItem>
           </Link>
           <MenuItem1>
+          <span style={{marginRight:"10px"}}>
             <Badge style={{color:'teal'}} badgeContent={totalQuantities} color="primary">
               <Link to="/cart"><ShoppingCartOutlined style={{color:'black'}} /></Link>
             </Badge>
-            <Badge style={{color:'teal'}} badgeContent={totalQuantities1} color="primary">
+            </span>
+            <span>
+              <Badge style={{color:'teal'}} badgeContent={totalQuantities1} color="primary">
              <Link to="/wishlist"><FavoriteBorderIcon style={{color:'black'}}/></Link>
             </Badge>
+            </span>
+            
           </MenuItem1>
         </Right>
       </Wrapper>

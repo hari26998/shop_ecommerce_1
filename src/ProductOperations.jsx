@@ -21,7 +21,7 @@ const ProductOperations = () => {
   ${mobile({ width:"50%" })}
   `;
   return (
-    <Container3 className="Product_op" style={{width:"1000px",height:"50%",alignItems:"flex-start"}}>
+    <Container3 className="Product_op" style={{width:"300px",height:"50%",alignItems:"flex-start"}}>
       <button
         onClick={() => dispatch({ type: "CLEAR" })}
         style={{backgroundColor:"white",color:"black",border:"1px solid teal"}}
@@ -29,7 +29,7 @@ const ProductOperations = () => {
         Clear All
       </button>
       <h3>Sort by price</h3>
-      <label for="radio-input-1" >
+      <label for="radio-input-1">
         <input
           type="radio"
           id="radio-input-1"

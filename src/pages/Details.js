@@ -188,9 +188,9 @@ const Details = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove onClick={decQuantity}/>
-              <Amount>{quantity}</Amount>
-              <Add onClick={() => setQuantity(quantity+1)} />
+              <Remove style={{cursor:"pointer"}} onClick={decQuantity}/>
+              <Amount >{quantity}</Amount>
+              <Add style={{cursor:"pointer"}} onClick={() => setQuantity(quantity+1)} />
             </AmountContainer>
             <Button onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})}>
               ADD TO CART

@@ -13,16 +13,30 @@ import { flexbox } from "@mui/system";
 import { mobile } from "../responsive";
 
 const Container3=styled.div`
-${mobile({display:"flex",flexDirection:"column" })}
+${mobile({display:"flex",flexDirection:"column" })};
+display: ${props=> props.display};
+justify-content: ${props=>props.justifyContent};
+align-items: ${props=>props.alignItems};
+// position:relative;
+
+
+`;
+const Container2=styled.div`
+width:25%;
+
+// bottom:0;
+// position:fixed;
+// overflow-y:scroll;
+// overflow-x:hidden;
 `;
 const Container = styled.div`
-    padding: 20px;
+    // padding: 20px;
+    padding-left:10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-  
-    
-`;
+    align-items:flex-start;
+    justify-content:space-between;
+    `;
 
 
 const Products = () => {
@@ -51,8 +65,13 @@ const Products = () => {
  
 
   return (
-    <Container3 className="mobile_filter" style={{display:"flex",justifyContent:"center",alignItems:"flex-start"}}>
-    <ProductOperations />
+    // <Container3 className="mobile_filter" style={{display:"flex",justifyContent:"spa",alignItems:"flex-start"}}>
+
+    <Container3 className="mobile_filter" display="flex" justifyContent="left"  alignItems="flex-start">
+      <Container2 width="25%" >
+        <ProductOperations />
+      </Container2>
+    
 
     
     <Container>

@@ -152,7 +152,7 @@ const Wishlist = () => {
      const {product}=useSelector(state=>state.ProductsReducers)
      const [quantity, setQuantity] = useState(1);
 
-     
+    
      
        
     return (
@@ -185,7 +185,8 @@ const Wishlist = () => {
                <ProductPrice>
                     {currencyFormatter.format(product.discountPrice, {code: 'INR'})}
                </ProductPrice>
-               <Button onClick={()=>dispatch({type:'ADD_TO_CART',payload:{product,quantity}})}> MOVE TO CART</Button>
+               <Button onClick={()=>dispatch({type: 'ADD_TO_CART', payload:{product,quantity}})}> MOVE TO CART</Button>
+              
                 <Button style={{width:"128px",marginTop:"10px"}} onClick={()=>dispatch({type: 'REMOVEWL', payload: product.id})}> REMOVE</Button>
              </PriceDetail>
             </Product>
