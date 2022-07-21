@@ -10,16 +10,21 @@ import store from "./store"
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router,Route } from "react-router-dom";
 import "./App.css"
+import 'react-toastify/dist/ReactToastify.css';
 import ScrollButton from "./ScrollButton";
+import { ToastContainer } from "react-toastify";
 
 
 
-
+  
 
 
 const App = () => {
+  
+  
   return(
     <Router>
+      <ToastContainer style={{position:"fixed",overflow:"hidden"}}/>
     <Provider store={store}>
       {/* <Header/>       */}
     <Navbar/>
@@ -29,7 +34,7 @@ const App = () => {
           <Route path="/wishlist" exact component={Wishlist}/>
           <Route path="/login" exact component={Login} />
           <Route path="/searchproducts" exact component={Search}/>
-          {/* <ScrollButton /> */}
+          <ScrollButton />
 
     </Provider>
     </Router>

@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const initState = {
     products: [],
     totalQuantities1: 0
@@ -16,7 +18,12 @@ let findPro1;
             } else {
                 const Tprice = state.totalPrice + product.discountPrice * quantity;
                 const Tquantities = state.totalQuantities1 + quantity;
-               
+                toast.dark("ITEM ADDED TO WISHLIST",{
+                    position:"top-left",
+                    autoClose:1500, 
+                    hideProgressBar: true,
+    
+                });
                 product.quantity = quantity;
                 return {
                     ...state, products: [...state.products, product],totalPrice: Tprice, totalQuantities1: Tquantities 
@@ -27,6 +34,12 @@ let findPro1;
                 case 'REMOVEWL':
                     const findPro1 = state.products.find(product => product.id === action.payload);
                      const filtered = state.products.filter(product => product.id !== action.payload);
+                     toast.dark("ITEM REMOVED FROM WISHLIST",{
+                        position:"top-left",
+                        autoClose:1500, 
+                        hideProgressBar: true,
+        
+                    });
                      return {
                          ...state,
                          products: filtered,

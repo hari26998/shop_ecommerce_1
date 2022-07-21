@@ -12,6 +12,7 @@ import Product from "./Product";
 import { flexbox } from "@mui/system";
 import { mobile } from "../responsive";
 
+
 const Container3=styled.div`
 ${mobile({display:"flex",flexDirection:"column" })};
 display: ${props=> props.display};

@@ -290,7 +290,7 @@ const Cart = () => {
                <ProductSize>
                <b>SUBTOTAL:</b><ProductPrice1>{currencyFormatter.format(product.discountPrice * product.quantity, {code: 'INR'})}</ProductPrice1>
                </ProductSize>
-               <button style={{border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})}>ADD TO WISHLIST</button>
+               <button style={{border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={()=>{dispatch({type: 'ADD_TO_WISHLIST', payload:{product,quantity}});dispatch({type: 'REMOVE', payload: product.id})}}>ADD TO WISHLIST</button>
                <button style={{width:"124px",marginTop:"10px",border:"1px solid black",color:"white",backgroundColor:"black",cursor:"pointer"}} onClick={() => dispatch({type: 'REMOVE', payload: product.id})}>REMOVE</button>
               </PriceDetail>
             </Product>
@@ -321,7 +321,7 @@ const Cart = () => {
         </>:"Your Cart is empty "}
       </Wrapper>
       {/* <Newsletter/> */}
-      <Footer style={{position:"fixed"}} />
+      <Footer style={{margin:"150px",position:"fixed"}} />
     </Container>
   );
 };

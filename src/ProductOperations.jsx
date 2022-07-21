@@ -53,13 +53,14 @@ const ProductOperations = () => {
         <span>High to low</span>
       </label>
       <h3>Category</h3>
-      <label for="checkbox-input" >
+      <label for="checkbox-input"  >
         <input
           type="checkbox"
           name="men"
           value="men"
           id="checkbox-input"
           checked={men}
+          defaultChecked
           onChange={(e) => dispatch({ type: "MEN" })}
         />
         Men

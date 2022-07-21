@@ -6,6 +6,9 @@ import {
 import { useState } from "react";
 import currencyFormatter from 'currency-formatter';
 import { BsFillXCircleFill } from "react-icons/bs";
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 
 import { useDispatch } from "react-redux";
@@ -113,11 +116,12 @@ const FilterContainer = styled.div`
   ${mobile({ width: "100%" })}
 `;
 
+
 const Product = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
 
   const dispatch=useDispatch()
-
+ 
 
   return(  
     <body style={{border:"1px solid black",marginBottom:"10px",display:"flex",justifyContent:"space-evenly"}}>
@@ -159,8 +163,10 @@ const Product = ({ product }) => {
                        <div className="product__discount__price">
                            {currencyFormatter.format(product.discountPrice, { code: 'INR' })}
                        </div>
+                       {/* onClick={()=>{dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}});notify();}} */}
                    </div>
-                   <button className="btn-default" onClick={()=>dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}})} >add to wishlist</button>
+                   <button className="btn-default" onClick={()=>dispatch({type:"ADD_TO_WISHLIST",payload:{product,quantity}})}>add to wishlist</button>
+                   
                    <button className="btn-default" onClick={()=>dispatch({type:"ADD_TO_CART",payload:{product,quantity}})}>add to cart</button>
             </div>
        

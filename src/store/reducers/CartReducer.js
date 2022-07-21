@@ -1,3 +1,6 @@
+import {toast} from "react-toastify"
+import { withTheme } from "styled-components";
+
 const initState = {
     products: [],
     totalPrice: 0,
@@ -17,6 +20,13 @@ const CartReducer = (state = initState, action) => {
             const Tprice = state.totalPrice + product.discountPrice * quantity;
             const Tquantities = state.totalQuantities + quantity;
             product.quantity = quantity;
+            toast.dark("ITEM ADDED TO CART",{
+                position:"top-left",
+                autoClose:1500, 
+                hideProgressBar: true,
+                
+
+            });
             return {
                 ...state, products: [...state.products, product],totalPrice: Tprice, totalQuantities: Tquantities 
             }
@@ -27,6 +37,12 @@ const CartReducer = (state = initState, action) => {
           index = state.products.findIndex(product => product.id === action.payload);
           findPro.quantity += 1;
           state.products[index] = findPro;
+          toast.dark("ITEM INCREMENTED",{
+            position:"top-left",
+            autoClose:1500, 
+            hideProgressBar: true,
+
+        });
           return {
               ...state,
               totalPrice: state.totalPrice + findPro.discountPrice, totalQuantities: state.totalQuantities+1
@@ -37,6 +53,12 @@ const CartReducer = (state = initState, action) => {
         if(findPro.quantity > 1){
            findPro.quantity -= 1;
            state.products[index] = findPro;
+           toast.dark("ITEM DECREMENTED",{
+            position:"top-left",
+            autoClose:1500, 
+            hideProgressBar: true,
+
+        });
            return {
                ...state,
                totalPrice: state.totalPrice - findPro.discountPrice, totalQuantities: state.totalQuantities - 1
@@ -47,12 +69,24 @@ const CartReducer = (state = initState, action) => {
         case 'REMOVE':
         findPro = state.products.find(product => product.id === action.payload);
         const filtered = state.products.filter(product => product.id !== action.payload);
+        toast.dark("ITEM REMOVED FROM CART",{
+            position:"top-left",
+            autoClose:1500, 
+            hideProgressBar: true,
+
+        });
         return {
             ...state,
             products: filtered,
             totalPrice: state.totalPrice - findPro.discountPrice * findPro.quantity, totalQuantities: state.totalQuantities - findPro.quantity
         }
                         case 'CLEARCART':
+                            toast.dark("CART CLEARED",{
+                                position:"top-left",
+                                autoClose:1500, 
+                                hideProgressBar: true,
+
+                            });
                         return{
                             ...state,
                             products:[],

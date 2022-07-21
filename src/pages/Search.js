@@ -91,8 +91,8 @@ const Search = () => {
 
   const filteredProducts = products.filter((product) => {
     if (
-      product.name.toUpperCase().includes(search) ||
-      product.brand.toUpperCase().includes(search)
+      product.name.toLowerCase().includes(search) ||
+      product.brand.toLowerCase().includes(search)
     ) {
       return product;
     }

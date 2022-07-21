@@ -185,9 +185,10 @@ const Wishlist = () => {
                <ProductPrice>
                     {currencyFormatter.format(product.discountPrice, {code: 'INR'})}
                </ProductPrice>
-               <Button onClick={()=>dispatch({type: 'ADD_TO_CART', payload:{product,quantity}})}> MOVE TO CART</Button>
+               {/* onClick={()=>{dispatch({type:'ADD_TO_WISHLIST',payload:{product,quantity}});notify();}}  */}
+               <Button onClick={()=>{dispatch({type: 'ADD_TO_CART', payload:{product,quantity}});dispatch({type: 'REMOVEWL', payload: product.id})}}> MOVE TO CART</Button>
               
-                <Button style={{width:"128px",marginTop:"10px"}} onClick={()=>dispatch({type: 'REMOVEWL', payload: product.id})}> REMOVE</Button>
+                {/* <Button style={{width:"128px",marginTop:"10px"}} onClick={()=>dispatch({type: 'REMOVEWL', payload: product.id})}> REMOVE</Button> */}
              </PriceDetail>
             </Product>
             <Hr />
