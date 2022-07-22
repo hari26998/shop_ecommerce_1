@@ -87,6 +87,7 @@ const Search = () => {
   const [search, setSearch] = useState("");
   const submitHandler = () => {
     setSearch("");
+    
   };
 
   const filteredProducts = products.filter((product) => {
@@ -101,7 +102,7 @@ const Search = () => {
   return (
     
       <Container3>
-<div  style={{display:"flex",margin:"15px 0"}}>
+        <div  style={{display:"flex",margin:"15px 0"}}>
           <TextField
             style={{ flex: 1 }}
             className="searchBox"

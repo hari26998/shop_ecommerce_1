@@ -8,6 +8,7 @@ import { mobile } from "../responsive";
 import currencyFormatter from "currency-formatter";
 import { useState } from "react";
 import Newsletter from "../components/Newsletter";
+import {toast} from "react-toastify"
 
 
 const Container = styled.div`
@@ -218,6 +219,12 @@ const Cart = () => {
               description:"for testing purpose",
               handler: function(response){
                 alert(response.razorpay_payment_id);
+                toast.dark("TRANSACTION SUCCESSFUL",{
+                  position:"top-left",
+                  autoClose:1500, 
+                  hideProgressBar: true,
+      
+              });
                 dispatch({type:'CLEARCART'}) 
 
                

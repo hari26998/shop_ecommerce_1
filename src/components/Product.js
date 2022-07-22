@@ -1,14 +1,6 @@
-import {
-  FavoriteBorderOutlined,
-  SearchOutlined,
-  ShoppingCartOutlined,
-} from "@material-ui/icons";
+
 import { useState } from "react";
 import currencyFormatter from 'currency-formatter';
-import { BsFillXCircleFill } from "react-icons/bs";
-// import {NotificationContainer, NotificationManager} from 'react-notifications';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 
 
 import { useDispatch } from "react-redux";
