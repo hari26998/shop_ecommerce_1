@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import Product from "../components/Product";
 import { Button, TextField } from "@mui/material";
 import { mobile } from "../responsive";
+import { ToastContainer } from "react-toastify";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 const Info = styled.div`
 opacity: 0;
@@ -102,6 +104,7 @@ const Search = () => {
   return (
     
       <Container3>
+        {/* <ToastContainer style={{zIndex:"3"}}/> */}
         <div  style={{display:"flex",margin:"15px 0"}}>
           <TextField
             style={{ flex: 1 }}

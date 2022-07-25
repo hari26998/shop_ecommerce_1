@@ -24,7 +24,7 @@ const App = () => {
   
   return(
     <Router>
-      <ToastContainer style={{position:"fixed",overflow:"hidden"}}/>
+      {/* <ToastContainer /> */}
     <Provider store={store}>
       {/* <Header/>       */}
     <Navbar/>

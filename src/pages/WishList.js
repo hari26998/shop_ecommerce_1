@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import Footer from "../components/Footer";
 import Newsletter from '../components/Newsletter';
+import { ToastContainer } from 'react-toastify';
 
 
 const Container = styled.div`
@@ -157,7 +158,7 @@ const Wishlist = () => {
        
     return (
         <Container>
-      
+      <ToastContainer/>
     
       <Wrapper>
         <Title>YOUR WISHLIST DETAILS</Title>

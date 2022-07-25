@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Products from "../components/Products"; 
@@ -8,6 +9,7 @@ const Home = () => {
   
   return (
     <div>
+      <ToastContainer/>
       <Banner/>
       <Products />
       <Footer/>

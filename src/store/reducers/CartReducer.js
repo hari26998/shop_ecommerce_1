@@ -22,7 +22,7 @@ const CartReducer = (state = initState, action) => {
             product.quantity = quantity;
             toast.dark("ITEM ADDED TO CART",{
                 position:"top-left",
-                autoClose:1500, 
+                autoClose:750, 
                 hideProgressBar: true,
                 
 
@@ -39,7 +39,7 @@ const CartReducer = (state = initState, action) => {
           state.products[index] = findPro;
           toast.dark("ITEM INCREMENTED",{
             position:"top-left",
-            autoClose:1500, 
+            autoClose:750, 
             hideProgressBar: true,
 
         });
@@ -55,7 +55,7 @@ const CartReducer = (state = initState, action) => {
            state.products[index] = findPro;
            toast.dark("ITEM DECREMENTED",{
             position:"top-left",
-            autoClose:1500, 
+            autoClose:750, 
             hideProgressBar: true,
 
         });
@@ -71,7 +71,7 @@ const CartReducer = (state = initState, action) => {
         const filtered = state.products.filter(product => product.id !== action.payload);
         toast.dark("ITEM REMOVED FROM CART",{
             position:"top-left",
-            autoClose:1500, 
+            autoClose:750, 
             hideProgressBar: true,
 
         });
@@ -83,7 +83,7 @@ const CartReducer = (state = initState, action) => {
                         case 'CLEARCART':
                             toast.dark("CART CLEARED",{
                                 position:"top-left",
-                                autoClose:1500, 
+                                autoClose:750, 
                                 hideProgressBar: true,
 
                             });

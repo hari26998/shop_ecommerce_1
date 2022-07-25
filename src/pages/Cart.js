@@ -8,7 +8,7 @@ import { mobile } from "../responsive";
 import currencyFormatter from "currency-formatter";
 import { useState } from "react";
 import Newsletter from "../components/Newsletter";
-import {toast} from "react-toastify"
+import {toast, ToastContainer} from "react-toastify"
 
 
 const Container = styled.div`
@@ -249,7 +249,9 @@ const Cart = () => {
         }
 
   return (
+    
     <Container>
+      <ToastContainer/>
       <Wrapper>
         <Title>YOUR CART DETAILS</Title>
         {cart > 0? <>

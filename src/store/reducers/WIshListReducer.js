@@ -20,7 +20,7 @@ let findPro1;
                 const Tquantities = state.totalQuantities1 + quantity;
                 toast.dark("ITEM ADDED TO WISHLIST",{
                     position:"top-left",
-                    autoClose:1500, 
+                    autoClose:750,
                     hideProgressBar: true,
     
                 });
@@ -36,7 +36,7 @@ let findPro1;
                      const filtered = state.products.filter(product => product.id !== action.payload);
                      toast.dark("ITEM REMOVED FROM WISHLIST",{
                         position:"top-left",
-                        autoClose:1500, 
+                        autoClose:750, 
                         hideProgressBar: true,
         
                     });
