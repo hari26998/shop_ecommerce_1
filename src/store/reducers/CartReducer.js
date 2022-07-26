@@ -1,4 +1,4 @@
-import {toast} from "react-toastify"
+import {Slide, toast} from "react-toastify"
 import { withTheme } from "styled-components";
 
 const initState = {
@@ -21,7 +21,8 @@ const CartReducer = (state = initState, action) => {
             const Tquantities = state.totalQuantities + quantity;
             product.quantity = quantity;
             toast.dark("ITEM ADDED TO CART",{
-                position:"top-left",
+                transition: Slide,
+                position:"top-center",
                 autoClose:750, 
                 hideProgressBar: true,
                 
@@ -38,7 +39,8 @@ const CartReducer = (state = initState, action) => {
           findPro.quantity += 1;
           state.products[index] = findPro;
           toast.dark("ITEM INCREMENTED",{
-            position:"top-left",
+            transition: Slide,
+            position:"top-center",
             autoClose:750, 
             hideProgressBar: true,
 
@@ -54,7 +56,8 @@ const CartReducer = (state = initState, action) => {
            findPro.quantity -= 1;
            state.products[index] = findPro;
            toast.dark("ITEM DECREMENTED",{
-            position:"top-left",
+            transition: Slide,
+            position:"top-center",
             autoClose:750, 
             hideProgressBar: true,
 
@@ -70,7 +73,8 @@ const CartReducer = (state = initState, action) => {
         findPro = state.products.find(product => product.id === action.payload);
         const filtered = state.products.filter(product => product.id !== action.payload);
         toast.dark("ITEM REMOVED FROM CART",{
-            position:"top-left",
+            transition: Slide,
+            position:"top-center",
             autoClose:750, 
             hideProgressBar: true,
 
@@ -82,7 +86,8 @@ const CartReducer = (state = initState, action) => {
         }
                         case 'CLEARCART':
                             toast.dark("CART CLEARED",{
-                                position:"top-left",
+                                transition: Slide,
+                                position:"top-center",
                                 autoClose:750, 
                                 hideProgressBar: true,
 

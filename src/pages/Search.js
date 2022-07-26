@@ -105,6 +105,7 @@ const Search = () => {
     
       <Container3>
         {/* <ToastContainer style={{zIndex:"3"}}/> */}
+        <ToastContainer style={{position:"fixed",zIndex:"999999"}}/>
         <div  style={{display:"flex",margin:"15px 0"}}>
           <TextField
             style={{ flex: 1 }}

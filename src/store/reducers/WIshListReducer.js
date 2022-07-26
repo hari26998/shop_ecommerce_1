@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import { Slide, toast } from "react-toastify";
 
 const initState = {
     products: [],
@@ -19,9 +19,11 @@ let findPro1;
                 const Tprice = state.totalPrice + product.discountPrice * quantity;
                 const Tquantities = state.totalQuantities1 + quantity;
                 toast.dark("ITEM ADDED TO WISHLIST",{
-                    position:"top-left",
+                    transition: Slide,
+                    position:"top-center",
                     autoClose:750,
                     hideProgressBar: true,
+                   
     
                 });
                 product.quantity = quantity;
@@ -35,7 +37,8 @@ let findPro1;
                     const findPro1 = state.products.find(product => product.id === action.payload);
                      const filtered = state.products.filter(product => product.id !== action.payload);
                      toast.dark("ITEM REMOVED FROM WISHLIST",{
-                        position:"top-left",
+                        transition: Slide,
+                        position:"top-center",
                         autoClose:750, 
                         hideProgressBar: true,
         
