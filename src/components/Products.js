@@ -26,7 +26,7 @@ ${mobile({ margin:"10px 10px"})}
 // overflow-x:hidden;
 `;
 const Container = styled.div`
-    // padding: 20px;
+    gap:15px;
     padding-left:10px;
     display: flex;
     flex-wrap: wrap;
