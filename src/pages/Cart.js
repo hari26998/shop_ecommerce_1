@@ -12,7 +12,9 @@ import {toast, ToastContainer} from "react-toastify"
 
 
 const Container = styled.div`
-margin-top: 100px`;
+margin-top: 100px;
+${mobile({ margin: "10px" })}
+`;
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -58,21 +60,42 @@ const Bottom = styled.div`
 
 const Info = styled.div`
   flex: 3;
+  ${mobile({ 
+    padding:"10px",
+    
+    flexDirection: "column" })}
 `;
 
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
-  ${mobile({ flexDirection: "column" })}
+  ${mobile({ 
+    margingright:"10px",
+    flexDirection: "column" })}
+`;
+
+const Product1 = styled.div`
+${mobile({ 
+padding:0,
+width:"100%" })}
 `;
 
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+  ${mobile({
+   display:"flex",
+    flexDirection:"column", 
+    // padding:"10px",
+    // margintop:"10px"
+  })}
 `;
 
 const Image = styled.img`
   width: 200px;
+  ${mobile({
+    margin:"50px"
+  })}
 `;
 
 const Details = styled.div`
@@ -80,9 +103,16 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  ${mobile({
+    display:"flex",
+    flexDirection:"column"
+  })}
 `;
 
-const ProductName = styled.span``;
+const ProductName = styled.span`
+${mobile({
+  margin:"0 50px"
+})}`;
 
 const ProductId = styled.span``;
 
@@ -101,6 +131,8 @@ const PriceDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  ${mobile({margin:"0 50px"})}
+
 `;
 
 const ProductAmountContainer = styled.div`
@@ -175,6 +207,7 @@ const FilterContainer = styled.div`
 const Filter = styled.div`
   display: flex;
   align-items: center;
+  ${mobile({margin:"0 50px"})}
 `;
 
 const FilterTitle = styled.span`
@@ -257,7 +290,8 @@ const Cart = () => {
         {cart > 0? <>
         <Bottom>
           <Info style={{border:"1px solid black",padding:"15px"}}>
-            {products.map(product=>(<div>
+            {products.map(product=>(
+            <Product1>
             <Product>
               <ProductDetail>
                 <Image src={`/images/${product.image}`} alt="/"/>
@@ -306,7 +340,7 @@ const Cart = () => {
             <Hr />
             
             
-            </div>
+            </Product1>
             ))}
           </Info>
           <Summary>

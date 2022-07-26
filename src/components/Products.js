@@ -11,19 +11,15 @@ import Product from "./Product";
   } from "./utlities";
 import { mobile } from "../responsive";
 
-
 const Container3=styled.div`
-${mobile({display:"flex",flexDirection:"column" })};
+${mobile({display:"flex",flexDirection:"column",margin:"10px 20px" })};
 display: ${props=> props.display};
 justify-content: ${props=>props.justifyContent};
 align-items: ${props=>props.alignItems};
 // position:relative;
-
-
 `;
 const Container2=styled.div`
-width:25%;
-
+${mobile({ margin:"10px 10px"})}
 // bottom:0;
 // position:fixed;
 // overflow-y:scroll;

@@ -10,7 +10,9 @@ import { ToastContainer } from 'react-toastify';
 
 
 const Container = styled.div`
-margin-top: 100px`;
+margin-top: 100px;
+${mobile({ margin: "10px" })}
+`;
 
 
 const Wrapper = styled.div`
@@ -52,7 +54,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
-  ${mobile({ flexDirection: "column" })}
+  ${mobile({ flexDirection: "column",border:"1px solid black" })}
 `;
 
 const Info = styled.div`
@@ -68,10 +70,17 @@ const Product = styled.div`
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+  ${mobile({
+    display:"flex",
+     flexDirection:"column", 
+     // padding:"10px",
+     // margintop:"10px"
+   })}
 `;
 
 const Image = styled.img`
   width: 200px;
+  ${mobile({margin:"0 50px"})}
 `;
 
 const Details = styled.div`
@@ -79,6 +88,9 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  ${mobile({
+    margin:"0 50px"
+  })}
 `;
 
 const ProductName = styled.span``;
@@ -100,6 +112,10 @@ const PriceDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  ${mobile({
+    margin:"0 50px"
+  })}
+ 
 `;
 
 const ProductAmountContainer = styled.div`
