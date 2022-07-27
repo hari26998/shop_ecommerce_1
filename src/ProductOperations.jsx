@@ -10,26 +10,30 @@ const ProductOperations = () => {
 
   const Container=styled.datalist`
   ${mobile({ display:"flex",width:"50%" })}
-  
   `;
   const Container1 =styled.input`
+  background-color: #9a905d;
+
   ${mobile({ type:"range",width:"50%" })}
 
   `;
-  const Container3= styled.fieldset`
+  const Container3 =styled.span`
+  cursor: pointer;
+  `;
+  const Container4= styled.fieldset`
   
   ${mobile({ width:"50%" })}
   `;
   return (
-    <Container3 className="Product_op" style={{width:"300px",height:"50%",alignItems:"flex-start"}}>
+    <Container4 className="Product_op" style={{width:"300px",height:"50%",alignItems:"flex-start"} }>
       <button
         onClick={() => dispatch({ type: "CLEAR" })}
-        style={{backgroundColor:"white",color:"black",border:"1px solid teal"}}
+        style={{backgroundColor:"white",color:"black",border:"1px solid teal",cursor:"pointer"}}
       >
         Clear All
       </button>
       <h3>Sort by price</h3>
-      <label for="radio-input-1">
+      <label for="radio-input-1" >
         <input
           type="radio"
           id="radio-input-1"
@@ -39,7 +43,7 @@ const ProductOperations = () => {
           onChange={() => dispatch({ type: "LOW_TO_HIGH" })}
         />
 
-        <span>Low to High</span>
+        <Container3 >Low to High</Container3>
       </label>
       <label for="radio-input-2" >
         <input
@@ -50,10 +54,10 @@ const ProductOperations = () => {
           checked={sortBy === "HIGH_TO_LOW"}
           onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
         />
-        <span>High to low</span>
+        <Container3 >High to low</Container3>
       </label>
       <h3>Category</h3>
-      <label for="checkbox-input"  >
+      <label for="checkbox-input" style={{cursor:"pointer"}} >
         <input
           type="checkbox"
           name="men"
@@ -64,8 +68,8 @@ const ProductOperations = () => {
           onChange={(e) => dispatch({ type: "MEN" })}
         />
         Men
-      </label>{" "}
-      <label for="checkbox-input">
+      </label>
+      <label for="checkbox-input" style={{cursor:"pointer"}}>
         <input
           type="checkbox"
           name="women"
@@ -92,7 +96,7 @@ const ProductOperations = () => {
                 }
               />
 
-              <span>7% and above</span>
+              <Container3>7% and above</Container3>
             </label>
           </li>
 
@@ -108,7 +112,7 @@ const ProductOperations = () => {
                   dispatch({ type: "DISCOUNT", value: e.target.value })
                 }
               />
-              <span>6% and above</span>
+              <Container3>6% and above</Container3>
             </label>
           </li>
           <li>
@@ -123,7 +127,7 @@ const ProductOperations = () => {
                   dispatch({ type: "DISCOUNT", value: e.target.value })
                 }
               />
-              <span>5% and above</span>
+              <Container3>5% and above</Container3>
             </label>
           </li>
           <li>
@@ -138,7 +142,7 @@ const ProductOperations = () => {
                   dispatch({ type: "DISCOUNT", value: e.target.value })
                 }
               />
-              <span>3% and above</span>
+              <Container3>3% and above</Container3>
             </label>
           </li>
           <li>
@@ -153,7 +157,7 @@ const ProductOperations = () => {
                   dispatch({ type: "DISCOUNT", value: e.target.value })
                 }
               />
-              <span>2% and above</span>
+              <Container3>2% and above</Container3>
             </label>
           </li>
         </ul>
@@ -186,11 +190,14 @@ const ProductOperations = () => {
           }
           style={{
             width:"100%",
+            cursor:"pointer",
+          
+
             // background: "teal"
           }}
         />
       
-    </Container3>
+    </Container4>
   );
 };
 
@@ -217,7 +224,7 @@ const ProductOperations = () => {
 //           onChange={() => dispatch({ type: "LOW_TO_HIGH" })}
 //         />
 
-//         <span>Low to High</span>
+//         <Container3>Low to High</span>
 //       </label>
 //       <label for="radio-input-2" className="flex-row gap-s">
 //         <input

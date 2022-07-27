@@ -1,13 +1,10 @@
 import { Add, Remove } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 import currencyFormatter from "currency-formatter";
 import { useState } from "react";
-import Newsletter from "../components/Newsletter";
 import {toast, ToastContainer} from "react-toastify"
 
 
@@ -18,12 +15,14 @@ ${mobile({ margin: "10px" })}
 
 const Wrapper = styled.div`
   padding: 20px;
-  ${mobile({ padding: "10px" })}
+  ${mobile({ padding:"10px"})}
 `;
 
 const Title = styled.h1`
   font-weight: 300;
   text-align: center;
+  ${mobile({textAlign:"left"})}
+
 `;
 
 const Top = styled.div`
@@ -75,9 +74,11 @@ const Product = styled.div`
 `;
 
 const Product1 = styled.div`
-${mobile({ 
+${mobile({
 padding:0,
-width:"100%" })}
+width:"100%",
+border:"1px solid black",
+marginTop:"10px" })}
 `;
 
 const ProductDetail = styled.div`

@@ -60,6 +60,7 @@ const CartReducer = (state = initState, action) => {
             position:"top-center",
             autoClose:750, 
             hideProgressBar: true,
+            closeButton:false,
 
         });
            return {
